@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>OpenLayerProject</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <style>
+      .map {
+        height: 600px;
+        width: 60%;
+      }
+      .button{
+        margin-top: 30px;
+      }
+      
+      body {font-family: Arial, Helvetica, sans-serif;}
+
+      /* The Modal (background) */
+      .w3-table{
+        margin-top:30px;
+       
+      }
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        -webkit-animation-name: fadeIn; /* Fade in the background */  
+        -webkit-animation-duration: 0.4s;
+        animation-name: fadeIn;
+        animation-duration: 0.4s
+      }
+
+      /* Modal Content */
+      .modal-content {
+        position: fixed;
+        bottom: 0;
+        background-color: #fefefe;
+        width: 100%;
+        -webkit-animation-name: slideIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: slideIn;
+        animation-duration: 0.4s
+      }
+
+      /* The Close Button */
+      .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-header {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+      }
+
+      .modal-body {padding: 2px 16px;}
+
+      .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+      }
+
+      /* Add Animation */
+      @-webkit-keyframes slideIn {
+        from {bottom: -300px; opacity: 0} 
+        to {bottom: 0; opacity: 1}
+      }
+
+      @keyframes slideIn {
+        from {bottom: -300px; opacity: 0}
+        to {bottom: 0; opacity: 1}
+      }
+
+      @-webkit-keyframes fadeIn {
+        from {opacity: 0} 
+        to {opacity: 1}
+      }
+
+      @keyframes fadeIn {
+        from {opacity: 0} 
+        to {opacity: 1}
+      }
+      
+      
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+
+  </head>
+  <body> 
+    
+    <h2>Map</h2>
+    <div id="map" class="map"> <label for="type" class="label">Geometry type: &nbsp;</label>
+      <select id="type">
+        <option value="Point">Point</option>
+        <option value="LineString">LineString</option>
+        <option value="Polygon">Polygon</option>
+      </select><button id="EDIT">EDIT </button></div>
+      
+      <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>OPENLAYERS</h2>
+    </div>
+    <div class="modal-body">
+      <label for="fname">Şehir:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">İlçe: </label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <div><button id="BTN">EKLE </button></div>
+    </div>
+    
+  </div>
+  
+
+</div>
+    <div>
+      <table id="table" class="w3-table w3-border w3-striped" id="table">
+        <tr>
+          <th>Şehir</th>
+          <th>İlçe</th>
+          <th>WKT  </th>
+          <th>DELETE  
+          </th>
+          <th>UPDATE</th>
+        </tr>
+       
+      </table>
+    </div>
+    <div id="update_modal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" onclick="close_op();">&times;</span>
+          <h2>GÜNCELLEME</h2>
+        </div>
+        <div class="modal-body">
+          <label for="fname">GÜNCEL-Şehir:</label>
+          <input type="text" id="güncel_sehir" name="fname"><br><br>
+          <label for="lname">GÜNCEL-İlçe: </label>
+          <input type="text" id="güncel_ilce" name="lname"><br><br>
+          <div><button id="upbtn">GÜNCELLE </button></div>
+        </div>
+        
+      </div>
+      
+     
+    <script src="main.js"></script>
+  
+   
+ 
+ 
+
+  </body>
+</html>
